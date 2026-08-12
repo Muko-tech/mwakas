@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Construction | MWAKAS & FRÈRES</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#f4f6f9;
+}
+
+/* NAVBAR */
+
+nav{
+background:#003366;
+padding:10px 0;
+position:fixed;
+width:100%;
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+.logo img{height:50px;}
+
+nav ul{
+list-style:none;
+display:flex;
+margin:0;
+padding:0;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+padding:10px 15px;
+font-weight:bold;
+font-size:13px;
+}
+
+/* HERO */
+
+.hero{
+height:40vh;
+background:url('https://www.shutterstock.com/image-photo/portrait-handsome-black-civil-engineer-600nw-2551185311.jpg') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+margin-top:70px;
+}
+
+.hero h1{
+background:rgba(0,0,0,0.6);
+padding:20px 40px;
+border-radius:6px;
+}
+
+/* GALERIE */
+
+.gallery{
+max-width:1200px;
+margin:auto;
+padding:60px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+transition:0.4s;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-container">
+
+<div class="logo">
+<img src="https://i.postimg.cc/XrNRjkKR/logo-png.png">
+</div>
+
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="about.html">À propos</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+<section class="hero">
+<h1>Nos Réalisations en Construction</h1>
+</section>
+
+<section class="gallery">
+
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" onclick="openImg(this)">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" onclick="openImg(this)">
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" onclick="openImg(this)">
+<img src="https://images.unsplash.com/photo-1541976590-713941681591" onclick="openImg(this)">
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" onclick="openImg(this)">
+<img src="https://images.unsplash.com/photo-1529429617124-95b109e86bb8" onclick="openImg(this)">
+
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+<img id="lightbox-img">
+</div>
+
+<script>
+
+function openImg(img){
+document.getElementById("lightbox").style.display="flex"
+document.getElementById("lightbox-img").src=img.src
+}
+
+function closeImg(){
+document.getElementById("lightbox").style.display="none"
+}
+
+</script>
+
+</body>
+</html>
