@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact – Ets MWAKAS & FRÈRES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- STYLES ET ANIMATIONS CONTACT --- */
+        .contact-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+            margin-bottom: 60px;
+        }
+
+        /* Carte d'informations de contact */
+        .contact-info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 35px 30px;
+            border: 1px solid #eef2f5;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Ligne décorative animée au survol */
+        .contact-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #003366, #00a2ff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+            border-color: transparent;
+        }
+
+        .contact-info-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-info-card h2 {
+            color: #003366;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .contact-detail i {
+            color: #00a2ff;
+            font-size: 1.2rem;
+            margin-top: 3px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-detail p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Boutons des réseaux sociaux */
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.7rem 1.3rem;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-social:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-facebook { background-color: #1877F2; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        /* Bloc image illustrative */
+        .contact-img-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            min-height: 100%;
+        }
+
+        .contact-img-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+        }
+
+        .contact-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .contact-img-box:hover img {
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-img-box {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/XrNRjkKR/logo-png.png" alt="Logo ETS MWAKAS">
+            </div>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div>
+            <h1>Contact</h1>
+            <p>Entrer en relation avec notre équipe</p>
+        </div>
+    </div>
+
+    <main class="contact-container">
+        <div class="contact-grid">
+            
+            <!-- Cadre d'informations -->
+            <div class="contact-info-card">
+                <div>
+                    <h2>Coordonnées</h2>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-location-dot"></i>
+                        <p><strong>Adresse :</strong> Av. Route de Matadi N°4035, Q/Gramalic, Ngaliema</p>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <p><strong>Téléphones :</strong> 0810155550 / 0810760342 / 0900241885</p>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <p><strong>Email :</strong> kabsmwamba@gmail.com</p>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-id-card"></i>
+                        <p><strong>RCCM :</strong> CD/KIN/RCCM/14-A-20117</p>
+                    </div>
+                </div>
+
+                <!-- Liens vers les réseaux sociaux -->
+                <div class="social-links">
+                    <a href="https://wa.me/243810155550" target="_blank" class="btn-social btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="btn-social btn-facebook">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="btn-social btn-instagram">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image interactive -->
+            <div class="contact-img-box">
+                <img src="https://i.postimg.cc/1VxLnZh3/e5e87e34-e5ba-4f64-aaf0-d48a6960443e.jpg" alt="Contact MWAKAS">
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        © 2014 – Ets MWAKAS & FRÈRES
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

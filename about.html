@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>À propos – Ets MWAKAS & FRÈRES</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<!-- FontAwesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* --- STYLES ET ANIMATIONS À PROPOS --- */
+    .about-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .about-intro {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .about-intro h2 {
+        color: #003366;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .about-intro p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    /* Section Présentation / Histoire */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+
+    /* CADRE INTERACTIF "QUI SOMMES-NOUS ?" */
+    .about-text-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 35px 30px;
+        border: 1px solid #eef2f5;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Ligne décorative animée au survol */
+    .about-text-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #003366, #00a2ff);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .about-text-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+        border-color: transparent;
+    }
+
+    .about-text-card:hover::before {
+        opacity: 1;
+    }
+
+    .about-text-card h3 {
+        color: #003366;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .about-text-card p {
+        line-height: 1.7;
+        color: #444;
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+
+    .about-text-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Image illustrative */
+    .about-img-box {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .about-img-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+    }
+
+    .about-img-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .about-img-box:hover img {
+        transform: scale(1.03);
+    }
+
+    /* Grille des Cartes (Valeurs / Objectifs) */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .feature-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px 25px;
+        border: 1px solid #eef2f5;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #003366, #00a2ff);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+        border-color: transparent;
+    }
+
+    .feature-card:hover::before {
+        opacity: 1;
+    }
+
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        background: #e6f2ff;
+        color: #003366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+        background: #003366;
+        color: #ffffff;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-card h3 {
+        color: #003366;
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        font-weight: 700;
+    }
+
+    .feature-card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    @media (max-width: 900px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <img src="https://i.postimg.cc/XrNRjkKR/logo-png.png" alt="Logo ETS MWAKAS">
+        </div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="hero">
+    <div>
+        <h1>À propos de nous</h1>
+        <p>Une expertise multiservice depuis 2014</p>
+    </div>
+</div>
+
+<main class="about-container">
+
+    <section class="about-grid">
+        <!-- Cadre Qui sommes-nous ? -->
+        <div class="about-text-card">
+            <h3>Qui sommes-nous ?</h3>
+            <p>
+                Fondée en 2014 et basée à Kinshasa, l'entreprise <strong>Ets MWAKAS & FRÈRES</strong> est une structure dynamique spécialisée dans les prestations multiservices. Notre équipe regroupe des professionnels chevronnés comptant plus de 10 ans d'expérience sur le terrain.
+            </p>
+            <p>
+                Notre mission principale est d'accompagner, de faciliter et d'optimiser la gestion des besoins secondaires des entreprises et des particuliers, leur permettant de se concentrer pleinement sur leur cœur de métier de manière économique et rentable.
+            </p>
+        </div>
+
+        <!-- Image d'accompagnement -->
+        <div class="about-img-box">
+            <img src="https://i.postimg.cc/1VxLnZh3/e5e87e34-e5ba-4f64-aaf0-d48a6960443e.jpg" alt="À propos Ets MWAKAS">
+        </div>
+    </section>
+
+    <div class="about-intro">
+        <h2>Nos Engagements & Valeurs</h2>
+        <p>Ce qui fait la force de notre accompagnement au quotidien</p>
+    </div>
+
+    <section class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-microchip"></i>
+            </div>
+            <h3>Technologies Actuelles</h3>
+            <p>Adaptation constante aux dernières innovations pour offrir des solutions modernes et efficaces.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Rapidité d'Exécution</h3>
+            <p>Reconnu pour notre réactivité et le respect strict des délais accordés sur chaque projet.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-tags"></i>
+            </div>
+            <h3>Prix Compétitifs</h3>
+            <p>Une politique tarifaire étudiée pour vous garantir un rapport qualité-prix imbattable.</p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    © 2014 – Ets MWAKAS & FRÈRES
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
