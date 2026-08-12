@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Services – Ets MWAKAS & FRÈRES</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<!-- FontAwesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* --- STYLES ET EFFETS DES SERVICES --- */
+    .services-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .services-intro {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .services-intro h2 {
+        color: #003366;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .services-intro p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    /* Grille Responsive */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    /* Carte de Service avec Effet Hover 3D / Elévation */
+    .service-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px 25px;
+        border: 1px solid #eef2f5;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Ligne décorative animée en haut de chaque carte */
+    .service-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #003366, #00a2ff);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Effets au survol */
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+        border-color: transparent;
+    }
+
+    .service-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Icône stylisée */
+    .service-icon {
+        width: 60px;
+        height: 60px;
+        background: #e6f2ff;
+        color: #003366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+        background: #003366;
+        color: #ffffff;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .service-card h3 {
+        color: #003366;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    /* Liste puces stylisées pour détailler les prestations */
+    .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+
+    .service-list li {
+        color: #555;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .service-list li i {
+        color: #25D366;
+        font-size: 0.8rem;
+    }
+
+    /* Bouton d'action sur chaque service */
+    .btn-service {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #00a2ff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9rem;
+        transition: color 0.2s ease;
+        margin-top: auto;
+    }
+
+    .btn-service:hover {
+        color: #003366;
+    }
+
+    .btn-service i {
+        transition: transform 0.2s ease;
+    }
+
+    .btn-service:hover i {
+        transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <img src="https://i.postimg.cc/XrNRjkKR/logo-png.png" alt="Logo ETS MWAKAS">
+        </div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="hero">
+    <div>
+        <h1>Nos Services</h1>
+        <p>Des solutions intégrées & un savoir-faire d'excellence</p>
+    </div>
+</div>
+
+<main class="services-container">
+    <div class="services-intro">
+        <h2>Un accompagnement sur-mesure</h2>
+        <p>Découvrez l'ensemble de nos domaines d'intervention pour les entreprises et particuliers</p>
+    </div>
+
+    <div class="services-grid">
+
+        <!-- Service 1: Génie Civil & BTP -->
+        <div class="service-card">
+            <div>
+                <div class="service-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h3>Génie Civil & Construction</h3>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Construction & Gros œuvre</li>
+                    <li><i class="fas fa-check"></i> Carrelage & Revêtement</li>
+                    <li><i class="fas fa-check"></i> Peinture bâtiment & déco</li>
+                    <li><i class="fas fa-check"></i> Plomberie sanitaire</li>
+                    <li><i class="fas fa-check"></i> Étanchéité & Isolation</li>
+                    <li><i class="fas fa-check"></i> Ferronnerie & Électricité</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 2: Menuiserie & Aménagement -->
+        <div class="service-card">
+            <div>
+                <div class="service-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <h3>Menuiserie & Cloisons</h3>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Menuiserie bois, alu & PVC</li>
+                    <li><i class="fas fa-check"></i> Pose de cloisons & faux plafonds</li>
+                    <li><i class="fas fa-check"></i> Aménagement intérieur & mobilier</li>
+                    <li><i class="fas fa-check"></i> Agencement de bureaux</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 3: Imprimerie & Design Graphique -->
+        <div class="service-card">
+            <div>
+                <div class="service-icon">
+                    <i class="fas fa-print"></i>
+                </div>
+                <h3>Imprimerie & Design</h3>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Création de logos & charte graphique</li>
+                    <li><i class="fas fa-check"></i> Cartes de visite, dépliants & affiches</li>
+                    <li><i class="fas fa-check"></i> Impression sur T-shirts & textiles</li>
+                    <li><i class="fas fa-check"></i> Banderoles, calicots & bâches</li>
+                    <li><i class="fas fa-check"></i> Panneaux publicitaires grand format</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 4: Marketing & Communication -->
+        <div class="service-card">
+            <div>
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Marketing & Communication</h3>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Branding & Identité visuelle</li>
+                    <li><i class="fas fa-check"></i> Campagnes publicitaires</li>
+                    <li><i class="fas fa-check"></i> Conseil & Stratégie digitale</li>
+                    <li><i class="fas fa-check"></i> Monitoring & Suivi d'image</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 5: Fournitures & Équipements -->
+        <div class="service-card">
+            <div>
+                <div class="service-icon">
+                    <i class="fas fa-boxes-packing"></i>
+                </div>
+                <h3>Fournitures & Mobilier</h3>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Consommables de bureau</li>
+                    <li><i class="fas fa-check"></i> Papeterie & Matériel informatique</li>
+                    <li><i class="fas fa-check"></i> Mobilier professionnel & ergonomique</li>
+                    <li><i class="fas fa-check"></i> Équipements de protection (EPI)</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service 6: Cleaning & Entretien -->
+        <div class="service-card">
+            <div>
+                <div class="service-icon">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <h3>Cleaning & Nettoyage</h3>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Nettoyage professionnel de bureaux</li>
+                    <li><i class="fas fa-check"></i> Entretien fin de chantier</li>
+                    <li><i class="fas fa-check"></i> Désinfection & Entretien régulier</li>
+                    <li><i class="fas fa-check"></i> Traitement des surfaces & vitrerie</li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    © 2014 – Ets MWAKAS & FRÈRES
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
