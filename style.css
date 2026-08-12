@@ -164,7 +164,57 @@ nav ul {
               url("https://i.postimg.cc/FdtzXc5F/Gemini-Generated-Image-taw7y1taw7y1taw7-(2).png") center/cover no-repeat; /* Note les ../ ici */
 }
 
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 768px) {
 
+  /* 1. En-tête et Menu */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 0 0 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+  }
+
+  /* 2. Titre principal et Hero */
+  .hero, main {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.7rem !important;
+    line-height: 1.2;
+    margin: 15px 10px;
+  }
+
+  /* 3. Grille des cartes / pastilles circulaires */
+  .services-container, .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes bien alignées */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px 10px;
+  }
+
+  .circle-item, .service-card {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+  }
+}
 
 
 
