@@ -7,71 +7,94 @@
   --accent: #00a8ff;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
+html, body {
+  width: 100%;
+  overflow-x: hidden;
   font-family: "Segoe UI", Arial, sans-serif;
   background: var(--light);
   color: var(--dark);
   line-height: 1.7;
 }
 
-/* ===== 2. NAVIGATION (LA RÉPARATION) ===== */
-/* Ce bloc aligne tes liens horizontalement et enlève le style violet/souligné */
+/* ===== 2. NAVIGATION & HEADER ===== */
 nav {
   background: var(--primary);
-  padding: 20px 8%;
+  padding: 15px 5%;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
 }
 
 nav ul {
-  list-style: none;     /* Enlève les points noirs */
-  display: flex;        /* Aligne horizontalement */
-  gap: 30px;            /* Espace entre les liens */
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
 
 nav a {
-  color: white;         /* Liens en blanc */
-  text-decoration: none;/* Enlève le soulignement */
+  color: white;
+  text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.9rem;
-  transition: 0.3s;
+  white-space: nowrap;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  color: var(--accent); /* Devient bleu clair au survol */
+  color: var(--accent);
 }
 
 /* ===== 3. HERO SECTION ===== */
 .hero {
-  height: 90vh;
+  min-height: 85vh;
   background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-              url("../images/hero.jpg") center/cover no-repeat;
+              url("https://i.postimg.cc/FdtzXc5F/Gemini-Generated-Image-taw7y1taw7y1taw7-(2).png") center/cover no-repeat;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  padding: 40px 20px;
+  width: 100%;
 }
 
 .hero h1 {
-  font-size: 3.2rem;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  word-break: break-word;
 }
 
 .hero p {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 3vw, 1.3rem);
   margin: 15px 0 30px;
 }
 
@@ -91,24 +114,26 @@ nav a:hover {
   color: var(--primary);
 }
 
-/* ===== 4. SECTIONS (ANIMATIONS) ===== */
+/* ===== 4. SECTIONS & GRILLES ===== */
 section {
-  padding: 80px 8%;
-  opacity: 1; /* Mis à 1 pour être sûr que le contenu soit visible */
-  transform: translateY(0);
+  padding: 60px 5%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 section h2 {
-  font-size: 2.4rem;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
   margin-bottom: 20px;
   color: var(--primary);
+  text-align: center;
 }
 
-/* ===== 5. GRILLES (SERVICES & PORTFOLIO) ===== */
-.services, .portfolio, .about, .contact {
+.services, .portfolio, .about, .contact, .services-grid, .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+  width: 100%;
 }
 
 .service-box {
@@ -120,110 +145,64 @@ section h2 {
 }
 
 .service-box:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .portfolio img, .about img, .contact img {
-  width: 100%;
   border-radius: 15px;
-  transition: .4s;
 }
 
-/* ===== 6. FOOTER (CORRIGÉ) ===== */
+/* Pastilles / Bulles */
+.circle-item, .service-card, img.circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* ===== 5. FOOTER ===== */
 footer {
   background: var(--secondary);
   color: white;
   text-align: center;
-  padding: 40px;
+  padding: 40px 20px;
   margin-top: 50px;
-}
-/* Intégration du logo et du menu sur une ligne */
-.nav-container {
-  display: flex;
-  justify-content: space-between; /* Pousse le logo à gauche, le menu à droite */
-  align-items: center;           /* Aligne parfaitement au centre verticalement */
   width: 100%;
 }
 
-.logo img {
-  height: 50px; /* Force la taille du logo pour qu'il ne soit pas trop gros */
-  width: auto;
-  display: block;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  margin: 0;
-}
-
-/* Correction pour l'image de fond qui ne s'affiche pas */
-.hero {
-  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-              url("https://i.postimg.cc/FdtzXc5F/Gemini-Generated-Image-taw7y1taw7y1taw7-(2).png") center/cover no-repeat; /* Note les ../ ici */
-}
-
-/* --- CORRECTION MOBILE RADICALE --- */
-html, body {
-  max-width: 100% !important;
-  overflow-x: hidden !important; /* Empêche le défilement horizontal/décalage */
-  margin: 0;
-  padding: 0;
-}
-
+/* ===== 6. ADAPTATION MOBILE (< 768px) ===== */
 @media (max-width: 768px) {
-
-  /* Force la largeur max sur tous les éléments */
-  * {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+  nav {
+    padding: 10px 15px;
   }
 
-  /* 1. Reconfiguration En-tête */
-  header {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding: 10px 5px !important;
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
   }
 
   nav ul {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    padding: 10px 0 0 0 !important;
-    margin: 0 !important;
-    gap: 10px !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
   }
 
   nav a {
-    font-size: 0.8rem !important;
+    font-size: 0.8rem;
   }
 
-  /* 2. Ajustement des titres et textes */
-  h1, h2, .title {
-    font-size: 1.4rem !important;
-    text-align: center !important;
-    word-wrap: break-word !important;
-    margin: 15px auto !important;
+  section {
+    padding: 40px 15px;
   }
 
-  /* 3. Grille des 4 pastilles (alignées 2 par 2 proprement) */
-  .services-container, .services-grid, .grid, main {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    width: 100% !important;
-    padding: 10px !important;
-  }
-
-  /* Taille forcée des bulles */
-  .circle-item, .service-card, img.circle {
-    width: 130px !important;
-    height: 130px !important;
-    margin: 0 !important;
+  .services-container, .services-grid, .grid {
+    grid-template-columns: repeat(2, 1fr); /* Aligne les pastilles 2 par 2 */
+    gap: 15px;
   }
 }
