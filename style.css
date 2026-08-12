@@ -164,58 +164,66 @@ nav ul {
               url("https://i.postimg.cc/FdtzXc5F/Gemini-Generated-Image-taw7y1taw7y1taw7-(2).png") center/cover no-repeat; /* Note les ../ ici */
 }
 
-/* --- ADAPTATION MOBILE --- */
+/* --- CORRECTION MOBILE RADICALE --- */
+html, body {
+  max-width: 100% !important;
+  overflow-x: hidden !important; /* Empêche le défilement horizontal/décalage */
+  margin: 0;
+  padding: 0;
+}
+
 @media (max-width: 768px) {
 
-  /* 1. En-tête et Menu */
+  /* Force la largeur max sur tous les éléments */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 1. Reconfiguration En-tête */
   header {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    position: relative;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 5px !important;
   }
 
   nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    padding: 10px 0 0 0;
-    margin: 0;
-    list-style: none;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    padding: 10px 0 0 0 !important;
+    margin: 0 !important;
+    gap: 10px !important;
   }
 
   nav a {
-    font-size: 0.85rem;
+    font-size: 0.8rem !important;
   }
 
-  /* 2. Titre principal et Hero */
-  .hero, main {
-    margin-top: 20px;
-    text-align: center;
+  /* 2. Ajustement des titres et textes */
+  h1, h2, .title {
+    font-size: 1.4rem !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    margin: 15px auto !important;
   }
 
-  h1 {
-    font-size: 1.7rem !important;
-    line-height: 1.2;
-    margin: 15px 10px;
+  /* 3. Grille des 4 pastilles (alignées 2 par 2 proprement) */
+  .services-container, .services-grid, .grid, main {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    width: 100% !important;
+    padding: 10px !important;
   }
 
-  /* 3. Grille des cartes / pastilles circulaires */
-  .services-container, .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes bien alignées */
-    gap: 20px;
-    justify-items: center;
-    padding: 20px 10px;
-  }
-
-  .circle-item, .service-card {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto;
+  /* Taille forcée des bulles */
+  .circle-item, .service-card, img.circle {
+    width: 130px !important;
+    height: 130px !important;
+    margin: 0 !important;
   }
 }
-
-
-
-
