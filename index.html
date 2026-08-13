@@ -1,37 +1,275 @@
-<style>
-    /* CSS à ajouter dans tes styles */
-    .menu-toggle {
-        display: none;
-    }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ets MWAKAS & FRÈRES | Accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwesome pour l'icône WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- STYLES GÉNÉRAUX --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+        }
 
-    .logo img {
-        height: 50px;
-        width: auto;
-        display: block;
-    }
-</style>
+        /* --- BARRE DE NAVIGATION --- */
+        nav {
+            background-color: #003366;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
 
-<nav>
-  <div class="nav-container">
-    <div class="logo">
-      <!-- REMPLACE "logo.png" PAR LE VRAI NOM DE TON FICHIER LOGO -->
-      <img src="logo.png" alt="Ets MWAKAS & FRÈRES">
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Correctif pour l'affichage du logo */
+        .logo img, .logo-nav img {
+            height: 50px;
+            display: block;
+        }
+
+        /* Correctif pour masquer la case à cocher du menu mobile */
+        .menu-toggle {
+            display: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        /* --- SECTION HERO --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://i.postimg.cc/sBZvbx2p/PEPEP.jpg'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.45);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 5%; 
+            gap: 50px;
+        }
+
+        /* --- GRILLE DE CADRES RONDS --- */
+        .circle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 160px);
+            gap: 20px;
+            flex-shrink: 0;
+        }
+
+        .circle-item:nth-child(even) {
+            margin-top: 40px;
+        }
+
+        .circle-item {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        .circle-item:hover { 
+            transform: scale(1.1); 
+            z-index: 15; 
+            box-shadow: 0 0 20px rgba(0, 162, 255, 0.5);
+        }
+
+        .circle-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .circle-content img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            opacity: 0.8;
+        }
+
+        .circle-content span {
+            position: absolute; 
+            bottom: 15%; 
+            left: 0; 
+            width: 100%;
+            color: white; 
+            font-weight: bold; 
+            font-size: 0.75rem;
+            text-align: center; 
+            background: rgba(0,0,0,0.6); 
+            padding: 5px 0;
+            text-transform: uppercase;
+        }
+
+        /* --- TEXTE ACCUEIL (CENTRE) --- */
+        .hero-text {
+            color: white;
+            flex-grow: 1; /* Prend l'espace restant pour permettre le centrage */
+            text-align: center; /* Centre le texte et le bouton */
+            z-index: 5;
+            padding-right: 5%; /* Equilibre le décalage des bulles à gauche */
+        }
+
+        .hero-text h1 { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 900; 
+            line-height: 1.1; 
+            white-space: nowrap; 
+        }
+
+        .hero-text p { 
+            font-size: 1.4rem; 
+            margin: 15px 0 30px 0; 
+        }
+
+        .btn {
+            background-color: #25D366; /* Couleur vert WhatsApp */
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background-color: #1eb954; }
+
+        /* Responsive */
+        @media (max-width: 1150px) {
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-overlay { gap: 30px; }
+        }
+
+        @media (max-width: 1000px) {
+            .hero-overlay { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                justify-content: center; 
+                padding: 80px 20px 0 20px; 
+            }
+            .hero-text {
+                padding-right: 0;
+            }
+            .hero-text h1 { 
+                white-space: normal; 
+                font-size: 2.5rem;
+            }
+            .circle-grid { transform: scale(0.8); gap: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="ton-logo.png" alt="Logo">
+            </div>
+
+            <!-- Éléments du menu hamburger (visibles uniquement sur mobile) -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Liste des liens -->
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-overlay">
+            <div class="circle-grid">
+                <a href="portfolio-construction.html" class="circle-item">
+                    <div class="circle-content">
+                        <img src="https://www.shutterstock.com/image-photo/portrait-handsome-black-civil-engineer-600nw-2551185311.jpg" alt="Construction">
+                        <span>CONSTRUCTION</span>
+                    </div>
+                </a>
+                <a href="portfolio-menuiserie.html" class="circle-item">
+                    <div class="circle-content">
+                        <img src="https://media.istockphoto.com/id/1218972142/fr/photo/%C3%A9tudiant-masculin-%C3%A9tudiant-pour-lapprentissage-de-menuiserie-au-coll%C3%A8ge-utilisant-lavion-de.jpg?s=612x612&w=0&k=20&c=EysQYtz3A48-cH-W8WtSyWdbry8ONpL1AMkqu3jEuTg=" alt="Menuiserie">
+                        <span>MENUISERIE</span>
+                    </div>
+                </a>
+                <a href="portfolio-cloisons.html" class="circle-item">
+                    <div class="circle-content">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsDV9fA3YA0aTTPTLvdRegdfXzqFMbkT_iA&s" alt="Aménagement">
+                        <span>AMÉNAGEMENT</span>
+                    </div>
+                </a>
+                <a href="portfolio-peinture.html" class="circle-item">
+                    <div class="circle-content">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhIVFRUVFxgWGBgXFxcVFhUVFhUXFxYXFRcYHiggGBslHRYVITEhJSorLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGi0lICUtLS0tLS0tLS0tLS0tLS0tLS0tLS8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAMIBAwMBEQACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAQIDBAUGBwj/xABGEAABAwEEBgYGBggHAAMAAAABAAIRAwQSITEFBkFRYYETInGRocEHFCMyUrEWQnKS0fAVM1OCorLC0iRiY3OT4fElNEP/xAAbAQEAAgMassage0J0J0j4fElNEP/xAAbAQEAAgMassage0J0J0j4fElNEP/xAAbAQEAAgMassage0J0J0j4fElNEP/xAAbAQEAAgMA...==" alt="Peinture">
+                        <span>PEINTURE</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="hero-text">
+                <h1>ETS MWAKAS & FRÈRES</h1>
+                <p>Vous servir c'est notre Devoir</p>
+                <a href="https://wa.me/243810155550" target="_blank" class="btn">
+                    <i class="fab fa-whatsapp"></i> Demander un devis
+                </a>
+            </div>
+        </div>
     </div>
 
-    <!-- Checkbox masquée pour le menu mobile -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <!-- Liste des liens -->
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="about.html">À propos</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+</body>
+</html>
