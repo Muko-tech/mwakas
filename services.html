@@ -78,7 +78,7 @@
         color: #00a8ff;
     }
 
-    /* --- EN-TÊTE / HERO PAGE SERVICES --- */
+    /* --- HERO / BANIERE --- */
     .hero {
         background-color: #003366;
         color: white;
@@ -96,7 +96,7 @@
         opacity: 0.9;
     }
 
-    /* --- CONTENEUR ET GRILLE DES SERVICES --- */
+    /* --- CONTENEUR DES SERVICES --- */
     .services-container {
         max-width: 1200px;
         margin: 40px auto;
@@ -119,26 +119,26 @@
         font-size: 1.1rem;
     }
 
+    /* GRILLE PAR DÉFAUT (GRAND ÉCRAN / ORDINATEUR) */
     .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
     }
 
-    /* --- CARTE DE SERVICE --- */
+    /* CARTE DE SERVICE (ORDINATEUR) */
     .service-card {
         background: #ffffff;
         border-radius: 12px;
         padding: 30px 25px;
         border: 1px solid #eef2f5;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.35s ease;
         position: relative;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 100%;
     }
 
     .service-card::before {
@@ -154,9 +154,8 @@
     }
 
     .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
-        border-color: transparent;
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.12);
     }
 
     .service-card:hover::before {
@@ -164,23 +163,16 @@
     }
 
     .service-icon {
-        width: 60px;
-        height: 60px;
+        width: 55px;
+        height: 55px;
         background: #e6f2ff;
         color: #003366;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin-bottom: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .service-card:hover .service-icon {
-        background: #003366;
-        color: #ffffff;
-        transform: scale(1.1) rotate(5deg);
     }
 
     .service-card h3 {
@@ -201,13 +193,14 @@
         font-size: 0.95rem;
         margin-bottom: 8px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 8px;
     }
 
     .service-list li i {
         color: #25D366;
         font-size: 0.8rem;
+        margin-top: 4px;
     }
 
     .btn-service {
@@ -226,14 +219,6 @@
         color: #003366;
     }
 
-    .btn-service i {
-        transition: transform 0.2s ease;
-    }
-
-    .btn-service:hover i {
-        transform: translateX(5px);
-    }
-
     footer {
         background: #1e272e;
         color: white;
@@ -243,55 +228,110 @@
     }
 
     /* ===================================================
-       --- ADAPTATION MOBILE ---
+       --- ADAPTATION MOBILE (2 COLONNES CÔTE À CÔTE) ---
        =================================================== */
     @media (max-width: 768px) {
+        /* Menu mobile 2x2 propre */
         .nav-container {
             padding: 5px 10px;
         }
 
         .logo img {
-            height: 38px;
+            height: 36px;
         }
 
-        /* Organisation 2x2 des onglets du menu */
         nav ul {
-            display: grid;
-            grid-template-columns: repeat(2, auto);
-            gap: 4px 10px;
+            display: grid !important;
+            grid-template-columns: repeat(2, auto) !important;
+            gap: 4px 8px !important;
             justify-content: end;
         }
 
         nav ul li a {
-            font-size: 11px;
-            padding: 2px 4px;
-            white-space: nowrap !important; /* Force "À PROPOS" sur une ligne */
-            display: block;
-            text-align: center;
+            font-size: 11px !important;
+            padding: 2px 4px !important;
+            white-space: nowrap !important; /* Empeche le saut de ligne dans À PROPOS */
         }
 
         .hero {
-            padding-top: 90px;
+            padding-top: 85px;
+            padding-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
         }
 
         .services-container {
-            margin: 20px auto;
-            padding: 0 15px;
+            margin: 15px auto;
+            padding: 0 8px;
         }
 
-        /* Cartes de service en pleine largeur sans écrasement */
+        .services-intro {
+            margin-bottom: 20px;
+        }
+
+        .services-intro h2 {
+            font-size: 1.3rem;
+        }
+
+        .services-intro p {
+            font-size: 0.85rem;
+        }
+
+        /* 1. FORCE L'AFFICHAGE EN 2 COLONNES CÔTE À CÔTE SUR MOBILE */
         .services-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important; 
+            gap: 10px !important;
+            width: 100% !important;
         }
 
+        /* 2. ADAPTE LES CARTES POUR LE FORMAT 2 COLONNES COMPACT */
         .service-card {
-            width: 100%;
-            padding: 20px 15px;
+            padding: 12px 10px !important;
+            border-radius: 10px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .service-icon {
+            width: 38px !important;
+            height: 38px !important;
+            font-size: 1rem !important;
+            margin-bottom: 10px !important;
+        }
+
+        .service-card h3 {
+            font-size: 0.9rem !important;
+            margin-bottom: 10px !important;
+            line-height: 1.2;
+        }
+
+        /* 3. AFFICHE TOUT LE CONTENU SANS LE COUPER */
+        .service-list {
+            margin-bottom: 12px !important;
+        }
+
+        .service-list li {
+            font-size: 0.72rem !important;
+            line-height: 1.25;
+            margin-bottom: 6px !important;
+            gap: 4px !important;
+        }
+
+        .service-list li i {
+            font-size: 0.65rem !important;
+            margin-top: 2px;
+        }
+
+        .btn-service {
+            font-size: 0.72rem !important;
+            gap: 4px !important;
         }
     }
 </style>
@@ -329,7 +369,7 @@
 
     <div class="services-grid">
 
-        <!-- Service 1: Génie Civil & BTP -->
+        <!-- Service 1: Génie Civil & Construction -->
         <div class="service-card">
             <div>
                 <div class="service-icon">
@@ -348,7 +388,7 @@
             <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- Service 2: Menuiserie & Aménagement -->
+        <!-- Service 2: Menuiserie & Cloisons -->
         <div class="service-card">
             <div>
                 <div class="service-icon">
@@ -365,7 +405,7 @@
             <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- Service 3: Imprimerie & Design Graphique -->
+        <!-- Service 3: Imprimerie & Design -->
         <div class="service-card">
             <div>
                 <div class="service-icon">
@@ -400,7 +440,7 @@
             <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- Service 5: Fournitures & Équipements -->
+        <!-- Service 5: Fournitures & Mobilier -->
         <div class="service-card">
             <div>
                 <div class="service-icon">
@@ -417,7 +457,7 @@
             <a href="contact.html" class="btn-service">Demander un devis <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <!-- Service 6: Cleaning & Entretien -->
+        <!-- Service 6: Cleaning & Nettoyage -->
         <div class="service-card">
             <div>
                 <div class="service-icon">
