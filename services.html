@@ -78,7 +78,7 @@
         color: #00a8ff;
     }
 
-    /* --- HERO / BANIERE --- */
+    /* --- HERO --- */
     .hero {
         background-color: #003366;
         color: white;
@@ -119,28 +119,29 @@
         font-size: 1.1rem;
     }
 
-    /* GRILLE PAR DÉFAUT (GRAND ÉCRAN / ORDINATEUR) */
+    /* GRILLE ORDINATEUR */
     .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
     }
 
-    /* CARTE DE SERVICE (ORDINATEUR) */
+    /* STYLES ET EFFETS CARTE (ORDINATEUR & MOBILE) */
     .service-card {
         background: #ffffff;
         border-radius: 12px;
         padding: 30px 25px;
         border: 1px solid #eef2f5;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: all 0.35s ease;
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        height: auto;
     }
 
+    /* Ligne supérieure animée en dégradé */
     .service-card::before {
         content: '';
         position: absolute;
@@ -151,14 +152,18 @@
         background: linear-gradient(90deg, #003366, #00a2ff);
         opacity: 0;
         transition: opacity 0.3s ease;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
     }
 
-    .service-card:hover {
+    /* Effets 3D au survol / toucher */
+    .service-card:hover, .service-card:active {
         transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.12);
+        box-shadow: 0 15px 30px rgba(0, 51, 102, 0.15);
+        border-color: transparent;
     }
 
-    .service-card:hover::before {
+    .service-card:hover::before, .service-card:active::before {
         opacity: 1;
     }
 
@@ -173,6 +178,13 @@
         justify-content: center;
         font-size: 1.4rem;
         margin-bottom: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon, .service-card:active .service-icon {
+        background: #003366;
+        color: #ffffff;
+        transform: scale(1.1) rotate(5deg);
     }
 
     .service-card h3 {
@@ -201,6 +213,7 @@
         color: #25D366;
         font-size: 0.8rem;
         margin-top: 4px;
+        flex-shrink: 0;
     }
 
     .btn-service {
@@ -215,8 +228,12 @@
         margin-top: auto;
     }
 
-    .btn-service:hover {
-        color: #003366;
+    .btn-service i {
+        transition: transform 0.2s ease;
+    }
+
+    .service-card:hover .btn-service i, .service-card:active .btn-service i {
+        transform: translateX(5px);
     }
 
     footer {
@@ -228,10 +245,10 @@
     }
 
     /* ===================================================
-       --- ADAPTATION MOBILE (2 COLONNES CÔTE À CÔTE) ---
+       --- ADAPTATION MOBILE (2 COLONNES SANS TRONCATURE) ---
        =================================================== */
     @media (max-width: 768px) {
-        /* Menu mobile 2x2 propre */
+        /* Menu mobile 2x2 */
         .nav-container {
             padding: 5px 10px;
         }
@@ -250,7 +267,7 @@
         nav ul li a {
             font-size: 11px !important;
             padding: 2px 4px !important;
-            white-space: nowrap !important; /* Empeche le saut de ligne dans À PROPOS */
+            white-space: nowrap !important;
         }
 
         .hero {
@@ -268,7 +285,7 @@
 
         .services-container {
             margin: 15px auto;
-            padding: 0 8px;
+            padding: 0 10px;
         }
 
         .services-intro {
@@ -283,55 +300,61 @@
             font-size: 0.85rem;
         }
 
-        /* 1. FORCE L'AFFICHAGE EN 2 COLONNES CÔTE À CÔTE SUR MOBILE */
+        /* Grille mobile 2 colonnes avec alignement flexible */
         .services-grid {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important; 
-            gap: 10px !important;
+            gap: 12px !important;
             width: 100% !important;
+            align-items: stretch !important;
         }
 
-        /* 2. ADAPTE LES CARTES POUR LE FORMAT 2 COLONNES COMPACT */
+        /* Supression totale de toute contrainte de hauteur sur les cartes */
         .service-card {
-            padding: 12px 10px !important;
+            padding: 16px 12px !important;
             border-radius: 10px !important;
             width: 100% !important;
+            height: auto !important;
+            min-height: 100% !important;
+            max-height: none !important;
+            overflow: visible !important;
             box-sizing: border-box !important;
         }
 
         .service-icon {
-            width: 38px !important;
-            height: 38px !important;
-            font-size: 1rem !important;
-            margin-bottom: 10px !important;
-        }
-
-        .service-card h3 {
-            font-size: 0.9rem !important;
-            margin-bottom: 10px !important;
-            line-height: 1.2;
-        }
-
-        /* 3. AFFICHE TOUT LE CONTENU SANS LE COUPER */
-        .service-list {
+            width: 42px !important;
+            height: 42px !important;
+            font-size: 1.1rem !important;
             margin-bottom: 12px !important;
         }
 
-        .service-list li {
-            font-size: 0.72rem !important;
+        .service-card h3 {
+            font-size: 0.95rem !important;
+            margin-bottom: 12px !important;
             line-height: 1.25;
-            margin-bottom: 6px !important;
-            gap: 4px !important;
+        }
+
+        /* Affichage intégral de toutes les lignes de texte */
+        .service-list {
+            margin-bottom: 15px !important;
+        }
+
+        .service-list li {
+            font-size: 0.78rem !important;
+            line-height: 1.35 !important;
+            margin-bottom: 8px !important;
+            gap: 6px !important;
         }
 
         .service-list li i {
-            font-size: 0.65rem !important;
+            font-size: 0.7rem !important;
             margin-top: 2px;
         }
 
         .btn-service {
-            font-size: 0.72rem !important;
-            gap: 4px !important;
+            font-size: 0.78rem !important;
+            gap: 5px !important;
+            padding-top: 5px;
         }
     }
 </style>
