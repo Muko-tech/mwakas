@@ -273,6 +273,104 @@
                 font-size: 0.65rem;
             }
         }
+        /* ===================================================
+           --- MENU MOBILE (burger) — téléphone uniquement ---
+           =================================================== */
+        .burger, .menu-mobile, .menu-backdrop { display: none; }
+
+        @media (max-width: 768px) {
+            nav { padding: 0; }
+            .nav-container { height: 64px; padding: 0 16px; }
+            .logo img { height: 42px; border-radius: 6px; }
+            nav ul { display: none !important; }
+
+            /* Bouton burger */
+            .burger {
+                display: flex; flex-direction: column; justify-content: center; gap: 6px;
+                width: 46px; height: 46px; padding: 0 11px;
+                background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+                border-radius: 12px; cursor: pointer; position: relative; z-index: 2200;
+                -webkit-tap-highlight-color: transparent;
+            }
+            .burger span {
+                display: block; height: 2px; width: 100%; background: #fff; border-radius: 2px;
+                transition: transform .35s ease, opacity .25s ease;
+            }
+            .burger span:nth-child(2) { width: 70%; margin-left: auto; }
+            body.menu-open .burger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            body.menu-open .burger span:nth-child(2) { opacity: 0; }
+            body.menu-open .burger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            /* Fond assombri */
+            .menu-backdrop {
+                display: block; position: fixed; inset: 0; z-index: 2050;
+                background: rgba(0, 20, 40, 0.45);
+                -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+                opacity: 0; pointer-events: none; transition: opacity .35s ease;
+            }
+            body.menu-open .menu-backdrop { opacity: 1; pointer-events: auto; }
+
+            /* Panneau qui glisse depuis la droite */
+            .menu-mobile {
+                display: flex; flex-direction: column;
+                position: fixed; top: 0; right: 0; bottom: 0; z-index: 2100;
+                width: 84%; max-width: 360px;
+                padding: 90px 24px calc(24px + env(safe-area-inset-bottom));
+                background: linear-gradient(160deg, #003366 0%, #001a33 100%);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.35);
+                border-radius: 24px 0 0 24px;
+                transform: translateX(105%); transition: transform .4s cubic-bezier(.22,.9,.3,1);
+            }
+            body.menu-open .menu-mobile { transform: translateX(0); }
+            body.menu-open { overflow: hidden; }
+
+            .menu-mobile .menu-label {
+                color: rgba(255,255,255,0.5); font-size: 12px; letter-spacing: 2px;
+                text-transform: uppercase; margin-bottom: 14px;
+            }
+            .menu-mobile a.menu-link {
+                display: flex; align-items: center; gap: 16px;
+                color: #fff; text-decoration: none; font-size: 20px; font-weight: 600;
+                padding: 16px 14px; border-radius: 14px; margin-bottom: 6px;
+                opacity: 0; transform: translateX(20px);
+                transition: background .2s, opacity .4s ease, transform .4s ease;
+            }
+            .menu-mobile a.menu-link i {
+                width: 40px; height: 40px; display: grid; place-items: center;
+                background: rgba(255,255,255,0.08); border-radius: 12px; font-size: 16px; color: #00a8ff;
+            }
+            .menu-mobile a.menu-link .chev { margin-left: auto; opacity: .4; font-size: 14px; }
+            .menu-mobile a.menu-link:active, .menu-mobile a.menu-link.active { background: rgba(0,168,255,0.15); }
+            body.menu-open .menu-mobile a.menu-link { opacity: 1; transform: none; }
+            body.menu-open .menu-mobile a.menu-link:nth-of-type(1) { transition-delay: .08s; }
+            body.menu-open .menu-mobile a.menu-link:nth-of-type(2) { transition-delay: .13s; }
+            body.menu-open .menu-mobile a.menu-link:nth-of-type(3) { transition-delay: .18s; }
+            body.menu-open .menu-mobile a.menu-link:nth-of-type(4) { transition-delay: .23s; }
+
+            .menu-mobile .menu-cta {
+                margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 10px;
+                background: #25D366; color: #fff; text-decoration: none; font-weight: bold; font-size: 17px;
+                padding: 16px; border-radius: 16px; box-shadow: 0 8px 20px rgba(37,211,102,0.3);
+            }
+            .menu-mobile .menu-slogan {
+                text-align: center; color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 14px;
+            }
+
+            /* Accueil : tout visible sur le premier écran */
+            .hero, .hero-overlay { min-height: 100vh; min-height: 100svh; }
+            .hero-overlay {
+                justify-content: center !important;
+                padding: 84px 16px 24px !important;
+                gap: 28px !important;
+            }
+            .hero-text { margin-top: 0 !important; flex-grow: 0 !important; }
+            .hero-text h1 { font-size: 1.75rem !important; letter-spacing: .5px; }
+            .hero-text p { font-size: 1.05rem !important; margin: 8px 0 18px !important; opacity: .9; }
+            .btn { padding: 13px 28px; font-size: 16px; }
+            .circle-grid { grid-template-columns: repeat(2, 128px) !important; gap: 16px 22px !important; margin-top: 0 !important; }
+            .circle-item { width: 128px !important; height: 128px !important; }
+            .circle-item:nth-child(even) { margin-top: 18px !important; }
+        }
     </style>
 </head>
 <body>
@@ -289,8 +387,22 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <div class="menu-backdrop"></div>
+    <aside class="menu-mobile" id="menu-mobile" aria-hidden="true">
+        <div class="menu-label">Menu</div>
+        <a href="index.html" class="menu-link active"><i class="fas fa-house"></i> Accueil <span class="chev">›</span></a>
+        <a href="about.html" class="menu-link"><i class="fas fa-users"></i> À propos <span class="chev">›</span></a>
+        <a href="services.html" class="menu-link"><i class="fas fa-screwdriver-wrench"></i> Services <span class="chev">›</span></a>
+        <a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact <span class="chev">›</span></a>
+        <a href="https://wa.me/243810155550" target="_blank" class="menu-cta"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+        <div class="menu-slogan">Vous servir c'est notre Devoir</div>
+    </aside>
 
     <div class="hero">
         <div class="hero-overlay">
@@ -330,6 +442,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+    (function () {
+        var btn = document.querySelector('.burger');
+        var menu = document.getElementById('menu-mobile');
+        var backdrop = document.querySelector('.menu-backdrop');
+        function setOpen(open) {
+            document.body.classList.toggle('menu-open', open);
+            btn.setAttribute('aria-expanded', open);
+            btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+            menu.setAttribute('aria-hidden', !open);
+        }
+        btn.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
+        backdrop.addEventListener('click', function () { setOpen(false); });
+        menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+        window.addEventListener('resize', function () { if (window.innerWidth > 768) setOpen(false); });
+    })();
+    </script>
 
 </body>
 </html>
