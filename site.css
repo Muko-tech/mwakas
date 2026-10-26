@@ -196,25 +196,22 @@ footer.site-footer { background: var(--navy-dark); color: #cfd9e4; padding: 46px
   .footer-bottom { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
 }
 
-/* ---------- Accueil : halo lumineux qui invite à toucher les bulles ---------- */
-.circle-grid .circle-item { cursor: pointer; transition: transform .25s ease, border-color .25s ease !important;
-                            animation: bulle-lumiere 3s ease-in-out infinite; }
-.circle-grid .circle-item:nth-of-type(2) { animation-delay: .6s; }
-.circle-grid .circle-item:nth-of-type(3) { animation-delay: 1.2s; }
-.circle-grid .circle-item:nth-of-type(4) { animation-delay: 1.8s; }
-.circle-grid .circle-item:nth-of-type(5) { animation-delay: 2.4s; }
-@keyframes bulle-lumiere {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,168,255,0), 0 0 6px rgba(0,168,255,.25); border-color: #fff; }
-  50% { box-shadow: 0 0 0 4px rgba(0,168,255,.35), 0 0 22px 6px rgba(0,168,255,.55); border-color: #bfe8ff; }
+/* ---------- Accueil : les bulles « respirent » doucement pour montrer qu'on peut appuyer ---------- */
+.circle-grid .circle-item { cursor: pointer; box-shadow: 0 6px 16px rgba(0,0,0,.28);
+                            animation: bulle-respire 3.2s ease-in-out infinite; transform-origin: center; }
+.circle-grid .circle-item:nth-of-type(2) { animation-delay: .5s; }
+.circle-grid .circle-item:nth-of-type(3) { animation-delay: 1s; }
+.circle-grid .circle-item:nth-of-type(4) { animation-delay: 1.5s; }
+.circle-grid .circle-item:nth-of-type(5) { animation-delay: 2s; }
+@keyframes bulle-respire {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
 }
-.circle-grid .circle-content img { transition: transform .4s ease, opacity .3s; }
+.circle-grid .circle-content img { transition: transform .4s ease; }
 @media (hover: hover) {
-  .circle-grid .circle-item:hover { transform: scale(1.05) !important; border-color: var(--accent) !important;
-                                    animation: none; box-shadow: 0 0 0 4px rgba(0,168,255,.45), 0 0 28px 8px rgba(0,168,255,.6) !important; }
-  .circle-grid .circle-item:hover .circle-content img { transform: scale(1.08); opacity: 1; }
+  .circle-grid .circle-item:hover { animation-play-state: paused; }
+  .circle-grid .circle-item:hover .circle-content img { transform: scale(1.08); }
 }
-.circle-grid .circle-item:active { transform: scale(.95) !important; }
+.circle-grid .circle-item:active { animation: none; transform: scale(.95) !important; }
 .circle-grid .circle-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-@media (prefers-reduced-motion: reduce) {
-  .circle-grid .circle-item { animation: none; box-shadow: 0 0 0 3px rgba(0,168,255,.4), 0 0 16px rgba(0,168,255,.45); }
-}
+@media (prefers-reduced-motion: reduce) { .circle-grid .circle-item { animation: none; } }
