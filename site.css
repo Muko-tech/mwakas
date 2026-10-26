@@ -215,3 +215,21 @@ footer.site-footer { background: var(--navy-dark); color: #cfd9e4; padding: 46px
 .circle-grid .circle-item:active { animation: none; transform: scale(.95) !important; }
 .circle-grid .circle-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { .circle-grid .circle-item { animation: none; } }
+
+/* ---------- Accueil : bulles en hexagones, disposées en nid d'abeille ---------- */
+.circle-grid { --w: 150px; --h: 173px; --g: 14px; filter: drop-shadow(0 8px 14px rgba(0,0,0,.35));
+               gap: 0 var(--g) !important; width: calc(3 * var(--w) + 2 * var(--g) + 4px) !important; }
+.circle-grid .circle-item, .circle-grid .circle-item:nth-child(n) {
+  width: var(--w) !important; height: var(--h) !important; border: 0 !important; border-radius: 0 !important;
+  background: #fff !important; padding: 4px !important; box-shadow: none !important; overflow: hidden !important;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.circle-grid .circle-item:nth-of-type(4), .circle-grid .circle-item:nth-of-type(5) {
+  margin-top: calc(var(--g) * .866 - var(--h) * .25) !important; }
+.circle-grid .circle-content { border-radius: 0 !important;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.circle-grid .circle-content span { bottom: 27% !important; }
+@media (max-width: 768px) {
+  .circle-grid { --w: 100px; --h: 115px; --g: 10px; }
+  .circle-grid .circle-item, .circle-grid .circle-item:nth-child(n) { padding: 3px !important; }
+}
