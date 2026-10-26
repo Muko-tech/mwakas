@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Réalisations Marketing &amp; Impression – Ets MWAKAS &amp; FRÈRES</title>
+<meta name="description" content="Découvrez en photos nos réalisations en marketing & impression à Kinshasa : Ets MWAKAS & FRÈRES, établissement multiservice depuis 2014.">
+<meta name="theme-color" content="#003366">
+<link rel="icon" type="image/png" sizes="32x32" href="images/site/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/site/icon-192.png">
+<link rel="apple-touch-icon" href="images/site/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Ets MWAKAS &amp; FRÈRES">
+<meta property="og:title" content="Réalisations Marketing &amp; Impression – Ets MWAKAS &amp; FRÈRES">
+<meta property="og:description" content="Découvrez en photos nos réalisations en marketing & impression à Kinshasa : Ets MWAKAS & FRÈRES, établissement multiservice depuis 2014.">
+<meta property="og:url" content="https://muko-tech.github.io/mwakas/portfolio-marketing.html">
+<meta property="og:image" content="https://muko-tech.github.io/mwakas/images/site/apercu-partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#f4f6f9;
+}
+
+/* NAVBAR */
+
+nav{
+background:#003366;
+padding:10px 0;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+.logo img{height:50px;}
+
+nav ul{
+list-style:none;
+display:flex;
+margin:0;
+padding:0;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+padding:10px 15px;
+font-weight:bold;
+font-size:13px;
+}
+
+/* HERO */
+
+.hero{
+height:40vh;
+background:linear-gradient(rgba(0,31,63,.35),rgba(0,31,63,.35)),url('images/marketing/cartes-de-visite-soco.jpg') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+margin-top:70px;
+}
+
+.hero h1{
+background:rgba(0,0,0,0.6);
+padding:20px 40px;
+border-radius:6px;
+}
+
+/* GALERIE */
+
+.gallery{
+max-width:1200px;
+margin:auto;
+padding:60px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+transition:0.4s;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="menu-mobile.css">
+<link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+
+<nav>
+<div class="nav-container">
+
+<div class="logo">
+<img src="images/site/logo.png" alt="Logo Ets MWAKAS &amp; FRÈRES">
+</div>
+
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="about.html">À propos</a></li>
+<li><a href="services.html">Services</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+</ul>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
+      <span></span><span></span><span></span>
+    </button>
+
+</div>
+</nav>
+
+<div class="menu-backdrop"></div>
+<aside class="menu-mobile" id="menu-mobile" aria-hidden="true">
+  <div class="menu-label">Menu</div>
+  <a href="index.html" class="menu-link"><i class="fas fa-house"></i> Accueil <span class="chev">›</span></a>
+  <a href="about.html" class="menu-link"><i class="fas fa-users"></i> À propos <span class="chev">›</span></a>
+  <a href="services.html" class="menu-link"><i class="fas fa-screwdriver-wrench"></i> Services <span class="chev">›</span></a>
+  <a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact <span class="chev">›</span></a>
+  <a href="https://wa.me/243810155550?text=Bonjour%2C%20j%27ai%20vu%20vos%20r%C3%A9alisations%20en%20Marketing%20%26%20Impression%20sur%20votre%20site.%20Je%20souhaite%20demander%20un%20devis." target="_blank" rel="noopener" class="menu-cta"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+  <div class="menu-slogan">Vous servir c'est notre Devoir</div>
+</aside>
+
+<section class="hero">
+<h1>Nos Réalisations en Marketing &amp; Impression</h1>
+</section>
+
+<div class="gallery-filters" role="toolbar" aria-label="Filtrer les photos">
+<button type="button" class="active" data-filter="tout">Tout <span class="n">23</span></button>
+<button type="button" data-filter="Textile">Textile <span class="n">6</span></button>
+<button type="button" data-filter="Affiches">Affiches <span class="n">8</span></button>
+<button type="button" data-filter="Presse & brochures">Presse &amp; brochures <span class="n">3</span></button>
+<button type="button" data-filter="Cartes de visite">Cartes de visite <span class="n">6</span></button>
+</div>
+
+<section class="gallery">
+
+<img src="images/marketing/polo-brode-logo-entreprise.jpg" data-cat="Textile" alt="Polo brodé logo entreprise – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/chemise-brodee-logo.jpg" data-cat="Textile" alt="Chemise brodée logo – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/combinaisons-travail-personnalisees.jpg" data-cat="Textile" alt="Combinaisons travail personnalisées – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-jubile-or-inss.jpg" data-cat="Affiches" alt="Affiche jubilé d'or INSS – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/pagne-commemoratif-inss.jpg" data-cat="Textile" alt="Pagne commémoratif INSS – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/motif-pagne-inss.jpg" data-cat="Textile" alt="Motif pagne INSS – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-cinema-cinekin.jpg" data-cat="Affiches" alt="Affiche cinéma Cinekin – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-campagne-sensibilisation.jpg" data-cat="Textile" alt="Affiche campagne sensibilisation – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-concert-romeo-golf.jpg" data-cat="Affiches" alt="Affiche concert Roméo Golf – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-concert-heritier-wata.jpg" data-cat="Affiches" alt="Affiche concert Héritier Wata – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-soiree-bar.jpg" data-cat="Affiches" alt="Affiche soirée bar – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-western-union.jpg" data-cat="Affiches" alt="Affiche Western Union – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-reseau-agences-bgfibank.jpg" data-cat="Affiches" alt="Affiche réseau agences BGFIBank – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/affiche-back-to-school.jpg" data-cat="Affiches" alt="Affiche back to school – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/magazine-mise-en-page.jpg" data-cat="Presse & brochures" alt="Magazine mise en page – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/depliant-entreprise.jpg" data-cat="Presse & brochures" alt="Dépliant entreprise – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/brochure-trois-volets.jpg" data-cat="Presse & brochures" alt="Brochure trois volets – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/cartes-de-visite-proxima.jpg" data-cat="Cartes de visite" alt="Cartes de visite Proxima – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/cartes-de-visite-design.jpg" data-cat="Cartes de visite" alt="Cartes de visite design – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/cartes-de-visite-couleurs.jpg" data-cat="Cartes de visite" alt="Cartes de visite couleurs – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/cartes-de-visite-soco.jpg" data-cat="Cartes de visite" alt="Cartes de visite SOCO – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/cartes-de-visite-sport.jpg" data-cat="Cartes de visite" alt="Cartes de visite sport – Ets MWAKAS & FRÈRES" loading="lazy">
+<img src="images/marketing/cartes-de-visite-entreprise.jpg" data-cat="Cartes de visite" alt="Cartes de visite entreprise – Ets MWAKAS & FRÈRES" loading="lazy">
+
+</section>
+
+
+<div class="band">
+  <div class="band-inner">
+    <h2 class="band-title">Découvrez nos autres réalisations</h2>
+    <p class="band-sub">Un seul interlocuteur pour tous vos travaux.</p>
+    <div class="real-cards">
+      <a class="real-card" href="portfolio-construction.html"><img src="images/construction/batiment-conteneurs-termine.jpg" alt="" loading="lazy"><span>Construction</span></a>
+      <a class="real-card" href="portfolio-menuiserie.html"><img src="images/menuiserie/porte-vitree-bois-posee.jpg" alt="" loading="lazy"><span>Menuiserie</span></a>
+      <a class="real-card" href="portfolio-cloisons.html"><img src="images/amenagement/open-space-cloisons-bureaux.jpg" alt="" loading="lazy"><span>Aménagement</span></a>
+      <a class="real-card" href="portfolio-peinture.html"><img src="images/peinture/fresque-murale-tortue.jpg" alt="" loading="lazy"><span>Peinture &amp; Carrelage</span></a>
+    </div>
+    <div class="cta-band">
+      <h2>Un projet ? Parlons-en.</h2>
+      <p>Décrivez-nous votre besoin : nous vous répondons rapidement avec un devis adapté.</p>
+      <div class="cta-actions">
+        <a class="btn-wa" href="https://wa.me/243810155550?text=Bonjour%2C%20j%27ai%20vu%20vos%20r%C3%A9alisations%20en%20Marketing%20%26%20Impression%20sur%20votre%20site.%20Je%20souhaite%20demander%20un%20devis." target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+        <a class="btn-ghost" href="tel:+243810155550"><i class="fas fa-phone"></i> 0810 155 550</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/243810155550?text=Bonjour%2C%20j%27ai%20vu%20vos%20r%C3%A9alisations%20en%20Marketing%20%26%20Impression%20sur%20votre%20site.%20Je%20souhaite%20demander%20un%20devis." target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="f-brand-text">
+      <div class="f-brand">
+        <img src="images/site/logo.png" alt="Logo Ets MWAKAS &amp; FRÈRES">
+        <div><strong>Ets MWAKAS &amp; FRÈRES</strong><span>Vous servir c'est notre Devoir</span></div>
+      </div>
+      <p>Établissement multiservice à Kinshasa depuis 2014 : construction, menuiserie, aménagement, peinture, marketing et impression.</p>
+    </div>
+    <div class="f-col">
+      <h4>Nous contacter</h4>
+      <a href="tel:+243810155550"><i class="fas fa-phone"></i> 0810 155 550</a>
+      <a href="tel:+243810760342"><i class="fas fa-phone"></i> 0810 760 342</a>
+      <a href="tel:+243900241885"><i class="fas fa-phone"></i> 0900 241 885</a>
+      <a href="mailto:kabsmwamba@gmail.com"><i class="fas fa-envelope"></i> kabsmwamba@gmail.com</a>
+      <p><i class="fas fa-location-dot"></i> Av. Route de Matadi N°4035, Ngaliema, Kinshasa</p>
+    </div>
+    <div class="f-col">
+      <h4>Nos réalisations</h4>
+      <a href="portfolio-construction.html">Construction</a>
+      <a href="portfolio-menuiserie.html">Menuiserie</a>
+      <a href="portfolio-cloisons.html">Aménagement</a>
+      <a href="portfolio-peinture.html">Peinture &amp; Carrelage</a>
+      <a href="portfolio-marketing.html">Marketing &amp; Impression</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014–2026 Ets MWAKAS &amp; FRÈRES · <a href="mentions-legales.html">Mentions légales &amp; confidentialité</a></div>
+</footer>
+<script src="menu-mobile.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

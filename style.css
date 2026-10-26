@@ -79,8 +79,8 @@ nav a:hover {
 .hero {
   /* Bandeau compact : le contenu de la page est visible tout de suite */
   padding: 120px 20px 45px;
-  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-              url("https://i.postimg.cc/FdtzXc5F/Gemini-Generated-Image-taw7y1taw7y1taw7-(2).png") center/cover no-repeat;
+  background: linear-gradient(rgba(0,31,63,.78), rgba(0,31,63,.78)),
+              url("images/amenagement/salle-renovee-porte-vitree.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
