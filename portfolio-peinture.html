@@ -19,6 +19,8 @@ nav{
 background:#003366;
 padding:10px 0;
 position:fixed;
+top:0;
+left:0;
 width:100%;
 z-index:1000;
 }
@@ -113,6 +115,8 @@ border-radius:10px;
 }
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="menu-mobile.css">
 </head>
 
 <body>
@@ -131,9 +135,23 @@ border-radius:10px;
 
 <li><a href="contact.html">Contact</a></li>
 </ul>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
+      <span></span><span></span><span></span>
+    </button>
 
 </div>
 </nav>
+
+<div class="menu-backdrop"></div>
+<aside class="menu-mobile" id="menu-mobile" aria-hidden="true">
+  <div class="menu-label">Menu</div>
+  <a href="index.html" class="menu-link"><i class="fas fa-house"></i> Accueil <span class="chev">›</span></a>
+  <a href="about.html" class="menu-link"><i class="fas fa-users"></i> À propos <span class="chev">›</span></a>
+  <a href="services.html" class="menu-link"><i class="fas fa-screwdriver-wrench"></i> Services <span class="chev">›</span></a>
+  <a href="contact.html" class="menu-link"><i class="fas fa-envelope"></i> Contact <span class="chev">›</span></a>
+  <a href="https://wa.me/243810155550" target="_blank" class="menu-cta"><i class="fab fa-whatsapp"></i> Demander un devis</a>
+  <div class="menu-slogan">Vous servir c'est notre Devoir</div>
+</aside>
 
 <section class="hero">
 <h1>Nos Réalisations en Peinture</h1>
@@ -172,5 +190,6 @@ document.getElementById("lightbox").style.display="none"
 
 </script>
 
+<script src="menu-mobile.js"></script>
 </body>
 </html>
