@@ -48,7 +48,7 @@ nav .logo img { border-radius: 50%; }
 
 /* ---------- Suppression des effets de survol inutiles (cartes qui montent) ---------- */
 .about-text-card:hover, .feature-card:hover, .contact-info-card:hover, .contact-img-box:hover,
-.service-card:hover, .circle-item:hover, .about-img-box:hover img { transform: none !important; }
+.service-card:hover, .about-img-box:hover img { transform: none !important; }
 .gallery img:hover { transform: scale(1.03) !important; }
 
 /* ---------- Bouton WhatsApp flottant ---------- */
@@ -195,3 +195,44 @@ footer.site-footer { background: var(--navy-dark); color: #cfd9e4; padding: 46px
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .footer-bottom { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
 }
+
+/* ---------- Accueil : montrer que les bulles sont cliquables ---------- */
+.circle-hint { flex-basis: 100%; text-align: center; margin: 0 0 4px; }
+.circle-hint span { display: inline-flex; align-items: center; gap: 8px; color: #fff; font: 600 .9rem var(--font-text);
+                    background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.25); padding: 6px 14px; border-radius: 999px;
+                    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.circle-hint i { color: var(--accent); }
+.circle-grid .circle-item { overflow: visible !important; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease !important; }
+/* petite flèche : le signe universel « on peut ouvrir » */
+.circle-grid .circle-item::after {
+  content: "\2192"; font-family: Arial, sans-serif; font-weight: 700; line-height: 1;
+  position: absolute; right: 4px; top: 4px; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-size: 17px; display: grid; place-items: center;
+  border: 2px solid #fff; box-shadow: 0 3px 10px rgba(0,0,0,.35); transition: transform .25s ease; z-index: 2;
+}
+.circle-grid .circle-content img { transition: transform .4s ease, opacity .3s; }
+@media (hover: hover) {
+  .circle-grid .circle-item:hover { transform: translateY(-4px) scale(1.04) !important; border-color: var(--accent) !important;
+                                    box-shadow: 0 10px 28px rgba(0,168,255,.45) !important; }
+  .circle-grid .circle-item:hover::after { transform: translateX(3px); }
+  .circle-grid .circle-item:hover .circle-content img { transform: scale(1.08); opacity: 1; }
+}
+.circle-grid .circle-item:active { transform: scale(.95) !important; }
+.circle-grid .circle-item:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+/* invitation discrète au chargement : un halo passe d'une bulle à l'autre, deux fois */
+.circle-grid .circle-item { animation: bulle-invite 1.6s ease-out 2; }
+.circle-grid .circle-item:nth-of-type(1) { animation-delay: .8s; }
+.circle-grid .circle-item:nth-of-type(2) { animation-delay: 1.05s; }
+.circle-grid .circle-item:nth-of-type(3) { animation-delay: 1.3s; }
+.circle-grid .circle-item:nth-of-type(4) { animation-delay: 1.55s; }
+.circle-grid .circle-item:nth-of-type(5) { animation-delay: 1.8s; }
+@keyframes bulle-invite {
+  0% { box-shadow: 0 0 0 0 rgba(0,168,255,.7); }
+  70% { box-shadow: 0 0 0 14px rgba(0,168,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,168,255,0); }
+}
+@media (max-width: 768px) {
+  .circle-hint span { font-size: .8rem; padding: 5px 12px; }
+  .circle-grid .circle-item::after { width: 26px; height: 26px; font-size: 14px; right: -1px; top: 1px; }
+}
+@media (prefers-reduced-motion: reduce) { .circle-grid .circle-item { animation: none; } }
