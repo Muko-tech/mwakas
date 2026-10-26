@@ -77,7 +77,8 @@ nav a:hover {
 
 /* ===== 3. HERO SECTION ===== */
 .hero {
-  height: 100vh;
+  /* Bandeau compact : le contenu de la page est visible tout de suite */
+  padding: 120px 20px 45px;
   background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
               url("https://i.postimg.cc/FdtzXc5F/Gemini-Generated-Image-taw7y1taw7y1taw7-(2).png") center/cover no-repeat;
   display: flex;
@@ -206,6 +207,10 @@ html, body {
     text-align: center !important;
     display: block !important;
   }
+
+  /* Bandeau compact sur téléphone */
+  .hero { padding: 88px 16px 24px !important; }
+  .hero p { font-size: 1rem !important; margin: 4px 0 0 !important; }
 
   /* Titres et éléments du site sur mobile */
   h1, h2, .title {
