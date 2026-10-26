@@ -233,3 +233,19 @@ footer.site-footer { background: var(--navy-dark); color: #cfd9e4; padding: 46px
   .circle-grid { --w: 100px; --h: 115px; --g: 10px; }
   .circle-grid .circle-item, .circle-grid .circle-item:nth-child(n) { padding: 3px !important; }
 }
+
+/* ---------- Accueil : photo de fond nette et lumineuse (sans voile sombre) ---------- */
+.hero-text h1, .hero-text p { text-shadow: 0 2px 4px rgba(0,0,0,.55), 0 4px 18px rgba(0,0,0,.45); }
+.hero-text { background: rgba(0,20,40,.28); border-radius: 22px; padding: 22px 26px; flex-grow: 0 !important; }
+@media (max-width: 768px) {
+  .hero { background-position: 66% center !important; }
+  .hero-text { padding: 16px 18px; }
+}
+@media (min-width: 769px) {
+  .hero { background-position: left center !important; }
+  .hero-overlay { flex-direction: column !important; align-items: flex-start !important; justify-content: center !important;
+                  gap: 26px !important; padding: 100px 5% 40px !important; }
+  .hero-text, .circle-grid { width: min(540px, 46vw) !important; margin: 0 !important; }
+  .hero-text h1 { font-size: 2.6rem !important; }
+  .circle-grid { --w: 140px; --h: 162px; --g: 12px; width: calc(3 * var(--w) + 2 * var(--g) + 4px) !important; margin-left: 30px !important; }
+}
